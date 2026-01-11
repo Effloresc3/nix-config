@@ -1,0 +1,17 @@
+{...}: {
+  programs.nvf.settings.vim = {
+    autocomplete.blink-cmp = {
+      enable = true;
+      setupOpts = {
+        keymap = {preset = "default";};
+                test
+        appearance = {
+          use_nerd_font_icons = true;
+        };
+        snippets = {
+          preset = "luasnip";
+        };
+      };
+    };
+  };
+}
