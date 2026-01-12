@@ -6,8 +6,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nvf.url = "github:notashelf/nvf";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nvf.url = "github:notashelf/nvf/v0.8";
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
       inputs.nixpkgs.follows = "nixpkgs";

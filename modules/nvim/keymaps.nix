@@ -36,7 +36,7 @@
         }
         {
           key = "<leader>q";
-          action = "lua vim.diagnostic.setloclist()";
+          action = "<cmd>lua vim.diagnostic.setloclist()<CR>";
           mode = "n";
           desc = "Open diagnostic Quickfix";
         }
@@ -143,12 +143,12 @@
 
         # Quickfix & Location List Navigation
         {
-          key = "<C-k>";
+          key = "<leader>cp";
           action = "<cmd>cnext<CR>zz";
           mode = "n";
         }
         {
-          key = "<C-j>";
+          key = "<leader>cn";
           action = "<cmd>cprev<CR>zz";
           mode = "n";
         }
