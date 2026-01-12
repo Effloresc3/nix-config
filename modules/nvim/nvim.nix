@@ -13,7 +13,6 @@
     ./autocmds.nix
     ./blink.nix
     ./mini.nix
-    ./treesitter.nix
   ];
   programs.nvf = {
     enable = true;
@@ -36,6 +35,9 @@
       theme.style = "medium";
       extraPackages = with pkgs; [
         tree-sitter
+        nodePackages.prettier
+        wl-clipboard
+        xclip
       ];
       statusline.lualine.enable = true;
       snippets.luasnip.enable = true;
