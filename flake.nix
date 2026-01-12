@@ -23,7 +23,10 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
@@ -40,6 +43,12 @@
           home-manager.users.seren = import ./home.nix;
         }
       ];
+    };
+    devShells.${system} = {
+      default = import ./shells/ts.nix {inherit pkgs;};
+
+      ts = import ./shells/ts.nix {inherit pkgs;};
+      java = import ./shells/java.nix {inherit pkgs;};
     };
   };
 }
