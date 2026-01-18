@@ -15,6 +15,11 @@
     };
     languages = {
       enableFormat = true;
+      java = {
+        enable = true;
+        treesitter.enable = true;
+        lsp.enable = true;
+      };
       ts = {
         enable = true;
         treesitter.enable = true;

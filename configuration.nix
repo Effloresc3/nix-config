@@ -89,10 +89,11 @@
   users.users.seren = {
     isNormalUser = true;
     description = "seren";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     shell = pkgs.zsh;
   };
   users.defaultUserShell = pkgs.zsh;
+  virtualisation.docker.enable = true;
 
   # --- SYSTEM PACKAGES ---
   nixpkgs.config.allowUnfree = true;

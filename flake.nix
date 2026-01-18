@@ -7,6 +7,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nvf.url = "github:notashelf/nvf/v0.8";
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
@@ -21,16 +22,24 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    unstable-pkgs = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true; # Needed for 1Password
+    };
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 
-      specialArgs = {inherit inputs;};
+      specialArgs = {
+        inherit inputs;
+        unstable = unstable-pkgs;
+      };
 
       modules = [
         ./configuration.nix
@@ -39,7 +48,10 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.extraSpecialArgs = {inherit inputs;};
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            unstable = unstable-pkgs;
+          };
           home-manager.users.seren = import ./home.nix;
         }
       ];

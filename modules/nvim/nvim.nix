@@ -18,11 +18,11 @@
     enable = true;
     settings.vim = {
       options = {
-        softtabstop = 4;
+        softtabstop = 2;
         smarttab = true;
         updatetime = 300;
-        shiftwidth = 4;
-        tabstop = 4;
+        shiftwidth = 2;
+        tabstop = 2;
         expandtab = true;
         smartindent = false;
         list = true;

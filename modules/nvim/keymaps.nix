@@ -5,6 +5,18 @@
 
       keymaps = [
         {
+          key = "<Esc>";
+          action = "<cmd>nohlsearch<CR>";
+          mode = "n";
+          desc = "Clear search highlights";
+        }
+        {
+          key = "<leader>m";
+          action = "<cmd>Man<CR>";
+          mode = "n";
+          desc = "Open manual";
+        }
+        {
           key = "<leader>dv";
           action = "<cmd>vnew<CR>";
           mode = "n";
@@ -143,12 +155,12 @@
 
         # Quickfix & Location List Navigation
         {
-          key = "<leader>cp";
+          key = "<leader>cn";
           action = "<cmd>cnext<CR>zz";
           mode = "n";
         }
         {
-          key = "<leader>cn";
+          key = "<leader>cp";
           action = "<cmd>cprev<CR>zz";
           mode = "n";
         }

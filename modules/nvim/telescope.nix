@@ -2,7 +2,11 @@
   programs.nvf.settings.vim = {
     telescope = {
       enable = true;
+      setupOpts.defaults = {
+        path_display = ["tail"];
+      };
       mappings = {
+        gitFiles = "<leader>tsp";
         findFiles = "<leader>tsf";
         liveGrep = "<leader>tsg";
         buffers = "<leader><leader>";
